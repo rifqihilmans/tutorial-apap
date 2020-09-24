@@ -4,7 +4,7 @@
 ---
 ## Tutorial 1
 ### What I have learned today
-*Saya belajar cukup banyak mengenai APAP. Seperti penggunaan Github dan Spring. Selain itu juga belajar menggunakan @RequestParam dan @PathVariable*
+*Saya belajar cukup banyak mengenai APAP. Seperti penggunaan Github dan Spring. Selain itu juga belajar menggunakan @RequestParam dan @PathVariable.*
 ### Github
 1. Apa itu Issue Tracker? Apa saja masalah yang dapat diselesaikan dengan Issue Tracker?
 Issue Tracker digunakan untuk mengumpulkan user feedback, melaporkan ketika ada bug dan masalah-masalah lainnya yang mungkin dapat terjadi. Dalam setiap issue juga terdapat label yang memudahkan pengelompokan. Masalah-masalah yang dapat diselesaikan diantaranya adalah request feature baru, error pada feature, pull request dan yang lainnya

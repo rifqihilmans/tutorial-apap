@@ -5,8 +5,12 @@ import apap.tutorial.traveloke.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 public class HotelController {
@@ -22,7 +26,7 @@ public class HotelController {
             @RequestParam(value = "alamat", required = true) String alamat,
             @RequestParam(value = "noTelepon", required = true) String noTelepon,
             Model model
-            ){
+    ){
 
         //Membuat objek HotelModel
         HotelModel hotel = new HotelModel(idHotel, namaHotel, alamat, noTelepon);
@@ -35,5 +39,40 @@ public class HotelController {
 
         //Return view template yang digunakan
         return "add-hotel";
+    }
+
+    @RequestMapping("/hotel/viewall")
+    public String listHotel(Model model){
+
+        //Mendapatkan semua HotelModel
+        List<HotelModel> listHotel = hotelService.getHotelList();
+
+        //Add variabel semua HotelModel ke 'listHotel' untuk dirender pada thymeleaf
+        model.addAttribute("listHotel", listHotel);
+
+        //Return view template yang diinginkan
+        return "viewall-hotel";
+    }
+
+    @RequestMapping("/hotel/view")
+    public String detailHotel(
+            @RequestParam(value = "idHotel") String idHotel,
+            Model model
+    ){
+        //Mendapatkan HotelModel sesuai dengan idHotel
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+
+        //Add variabel HotelModel ke 'hotel' untuk dirender pada thymeleaf
+        model.addAttribute("hotel", hotel);
+
+        return "view-hotel";
+    }
+
+    @GetMapping(value = "/hotel/view/id-hotel/{idHotel}")
+    public String getIdByPathVariable(
+            @PathVariable(value = "idHotel") String idHotel,
+            Model model
+    ){
+        return detailHotel(idHotel, model);
     }
 }

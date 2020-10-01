@@ -27,3 +27,20 @@ Perbedaan dari @RequestParam dan @PathVariable terletak pada keyword yang terdap
 ### What I did not understand
 - [ ] Saya masih belum mengerti mengenai fungsi dari model dan controller lebih dalam
 - [ ] Saya masih belum mengerti file seperti apa yang dimasukkan ke package model maupun controller
+
+---
+## Tutorial 2
+### What I have learned today
+*Saya belajar banyak pada Tutorial kali ini terutama belajar mengenai penggunaan MVC*
+1. Terjadi Internal Server Error 500 karena belum memiliki templates/HTML
+2. @Autowired merupakan anotasi yang disediakan oleh Spring. Constructor, field, setter dapat dibuat secara langsung sehingga dapat mengurangi volume konfigurasi yang diperlukan. @Autowired juga dapat membuat konfigurasi up-to-date. Contohnya ketika menambahkan dependency ke sebuah class, dependensi dapat dipenuhi secara otomatis tanpa perlu konfigurasi
+3. Terjadi error karena ketika ingin menambahkan hotel, terdapat 4 parameter yang harus dimasukkan yaitu id, nama, alamat dan nomor telepon. Pada pertanyaan tersebut tidak terdapat nomor telepon pada URL sehingga terjadi error
+4. Mengakses link berikut ini: http://localhost:8080/hotel/view?idHotel=1
+5. Berikut hasilnya 
+![no5](https://user-images.githubusercontent.com/60379157/94827810-0fcf0200-0433-11eb-919e-fcbed67d62da.jpg)
+
+### What I did not understand
+- [ ] Saya masih belum mengerti perbedaan @RequestMapping dengan @GetMapping
+
+
+   

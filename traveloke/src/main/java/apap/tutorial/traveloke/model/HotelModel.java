@@ -6,6 +6,13 @@ public class HotelModel {
     private String alamat;
     private String noTelepon;
 
+    public HotelModel(String idHotel, String namaHotel, String alamat, String noTelepon) {
+        this.idHotel = idHotel;
+        this.namaHotel = namaHotel;
+        this.alamat = alamat;
+        this.noTelepon = noTelepon;
+    }
+
     public String getIdHotel() {
         return idHotel;
     }

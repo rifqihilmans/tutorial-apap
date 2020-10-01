@@ -24,4 +24,17 @@ public class HotelInMemoryService implements HotelService{
     public List<HotelModel> getHotelList() {
         return listHotel;
     }
+
+    @Override
+    public HotelModel getHotelByIdHotel(String idHotel) {
+        HotelModel hotelID = null;
+        for (int i = 0; i < listHotel.size(); i++) {
+            String id = listHotel.get(i).getIdHotel();
+            if(id.equals(idHotel)){
+                hotelID = listHotel.get(i);
+            }
+        }
+        return hotelID;
+    }
+
 }

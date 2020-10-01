@@ -72,6 +72,9 @@ public class HotelController {
             @PathVariable(value = "idHotel") String idHotel,
             Model model
     ){
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+
+
         model.addAttribute("idHotel", idHotel);
         return detailHotel(idHotel, model);
     }
@@ -83,10 +86,10 @@ public class HotelController {
             Model model
     ){
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+
         if(hotel != null){
             hotel.setNoTelepon(noTelepon);
         }
-
         model.addAttribute("hotel", hotel);
 
         return "view-telpupdate";

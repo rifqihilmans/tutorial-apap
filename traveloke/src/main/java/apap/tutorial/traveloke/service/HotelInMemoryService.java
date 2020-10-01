@@ -37,4 +37,8 @@ public class HotelInMemoryService implements HotelService{
         return hotelID;
     }
 
+    @Override
+    public void deleteHotel(HotelModel hotel) {
+        listHotel.remove(hotel);
+    }
 }

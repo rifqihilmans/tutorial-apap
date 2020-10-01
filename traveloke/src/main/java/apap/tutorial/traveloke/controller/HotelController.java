@@ -91,4 +91,24 @@ public class HotelController {
 
         return "view-telpupdate";
     }
+
+    @RequestMapping(value = "hotel/delete/id-hotel/{idHotel}")
+    public String deleteHotelById(
+            @PathVariable(value = "idHotel") String idHotel,
+            Model model
+    ){
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+        boolean exists = true;
+
+        if(hotel != null){
+            hotelService.deleteHotel(hotel);
+            exists = true;
+        }else{
+            exists = false;
+        }
+
+        model.addAttribute("exists", exists);
+
+        return "view-delete-hotel";
+    }
 }

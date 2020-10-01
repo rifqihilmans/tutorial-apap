@@ -5,7 +5,6 @@ import apap.tutorial.traveloke.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,11 +67,28 @@ public class HotelController {
         return "view-hotel";
     }
 
-    @GetMapping(value = "/hotel/view/id-hotel/{idHotel}")
+    @RequestMapping(value = "/hotel/view/id-hotel/{idHotel}")
     public String getIdByPathVariable(
             @PathVariable(value = "idHotel") String idHotel,
             Model model
     ){
+        model.addAttribute("idHotel", idHotel);
         return detailHotel(idHotel, model);
+    }
+
+    @RequestMapping(value = "hotel/update/id-hotel/{idHotel}/no-telepon/{noTelepon}")
+    public String updatePhoneNumber(
+            @PathVariable(value = "idHotel") String idHotel,
+            @PathVariable(value = "noTelepon") String noTelepon,
+            Model model
+    ){
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+        if(hotel != null){
+            hotel.setNoTelepon(noTelepon);
+        }
+
+        model.addAttribute("hotel", hotel);
+
+        return "view-telpupdate";
     }
 }

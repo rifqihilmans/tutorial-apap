@@ -26,19 +26,29 @@ public class HotelInMemoryService implements HotelService{
     }
 
     @Override
-    public HotelModel getHotelByIdHotel(String idHotel) {
-        HotelModel hotelID = null;
-        for (int i = 0; i < listHotel.size(); i++) {
-            String id = listHotel.get(i).getIdHotel();
-            if(id.equals(idHotel)){
-                hotelID = listHotel.get(i);
-            }
-        }
-        return hotelID;
+    public HotelModel getHotelByIdHotel(Long idHotel) {
+        return null;
     }
 
     @Override
-    public void deleteHotel(HotelModel hotel) {
-        listHotel.remove(hotel);
+    public HotelModel updateHotel(HotelModel hotel) {
+        return null;
     }
+
+    //    @Override
+//    public HotelModel getHotelByIdHotel(String idHotel) {
+//        HotelModel hotelID = null;
+//        for (int i = 0; i < listHotel.size(); i++) {
+//            String id = listHotel.get(i).getIdHotel();
+//            if(id.equals(idHotel)){
+//                hotelID = listHotel.get(i);
+//            }
+//        }
+//        return hotelID;
+//    }
+
+//    @Override
+//    public void deleteHotel(HotelModel hotel) {
+//        listHotel.remove(hotel);
+//    }
 }

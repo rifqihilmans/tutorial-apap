@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>No Telepon Update</title>
+</head>
+<body>
+    <div th:if="${hotel != null}">
+        <h2>Update Informasi Hotel</h2>
+        <h3 th:text="'Id Hotel: ' + ${hotel.idHotel}"></h3>
+        <h3 th:text="'Nama Hotel: ' + ${hotel.namaHotel}"></h3>
+        <h3 th:text="'Alamat Hotel: ' + ${hotel.alamat}"></h3>
+        <h3 th:text="'Nomor Telepon: ' + ${hotel.noTelepon}"></h3>
+        <h3>Nomor Telepon berhasil diubah</h3>
+        <a href="/hotel/viewall">Kembali</a>
+    </div>
+    <div th:unless="${hotel != null}">
+        <h2 th:text="'Hotel tidak ditemukan.'"></h2>
+    </div>
+</body>
+</html>

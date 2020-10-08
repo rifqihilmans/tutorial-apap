@@ -42,5 +42,15 @@ Perbedaan dari @RequestParam dan @PathVariable terletak pada keyword yang terdap
 ### What I did not understand
 - [ ] Saya masih belum mengerti perbedaan @RequestMapping dengan @GetMapping
 
+---
+## Tutorial 3
+### What I have learned today
+*Saya belajar penggunaan database pada Spring Framework*
+1. Method tersebut berguna untuk mengembalikan list dari class HotelModel. Method tersebut akan mencari kamar yang sesuai dengan id dari objek HotelModel dan mengembalikannya dalam bentuk list
+2. addHotelFormPage akan menampilkan form untuk diisi oleh user untuk menambahkan hotel sesuai dengan field-field yang ada. Sedangakan addHotelSubmit akan mengambil apa yang user isi dan juga sebagai penanda kalau hotel berhasil ditambahkan
+3. JPA sendiri adalah merupakan suatu cara standar untuk memasukkan data ke dalam relational database. JPA Repository berguna untuk mempermudah dan menghemat waktu.
+4. Terdapat @OneToMany di HotelModel dan @ManyToOne di KamarModel yang menunjukkan hubungan relasi dari kedua class.
+5. FetchType.LAZY digunakan ketika kita ingin melakukan fetch data ketika dibutuhkan atau dipanggil dengan suatu method. CascadeType.ALL adalah melakukan semua perubahan untuk suatu entity. Perubahan-perubahan yang dapat dilakukan seperti persist, remove, refresh dan merge. FetchType.EAGER adalah fetch data dilakukan secepatnya dan akan load semua relationship 
 
-   
+### What I did not understand
+- [ ] Saya belum mengerti penggunaan @PostMapping   

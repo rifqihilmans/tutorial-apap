@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "hotel")
-public class HotelModel implements Serializable {
+public class HotelModel implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

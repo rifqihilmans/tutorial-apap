@@ -50,8 +50,13 @@ public class HotelController {
             Model model
     ){
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
-        model.addAttribute("hotel", hotel);
-        return "form-update-hotel";
+        if(hotel != null){
+            model.addAttribute("hotel", hotel);
+            return "form-update-hotel";
+        }else{
+            return "error-page";
+        }
+
     }
 
     @PostMapping("/hotel/change")
@@ -71,18 +76,22 @@ public class HotelController {
     ){
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         boolean kamarKosong = true;
-        if (kamarService.findAllKamarByIdHotel(idHotel).size() != 0){
+        if (kamarService.findAllKamarByIdHotel(idHotel).size() != 0 && hotel != null){
             kamarKosong = true;
             List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
             model.addAttribute("hotel", hotel);
             model.addAttribute("listKamar", listKamar);
             model.addAttribute("kamarKosong", kamarKosong);
             return "view-hotel";
-        }else{
+        }else if(kamarService.findAllKamarByIdHotel(idHotel).size() == 0 && hotel != null){
             kamarKosong = false;
             model.addAttribute("hotel", hotel);
             model.addAttribute("kamarKosong", kamarKosong);
             return "view-hotel";
+        }else if(kamarService.findAllKamarByIdHotel(idHotel).size() == 0 && hotel == null){
+            return "error-page";
+        }else{
+            return "error-page";
         }
 
     }
@@ -94,17 +103,21 @@ public class HotelController {
     ){
         HotelModel hotelModel = hotelService.getHotelByIdHotel(idHotel);
         boolean kamarKosong = true;
-        if(kamarService.findAllKamarByIdHotel(idHotel).size() == 0){
+        if(kamarService.findAllKamarByIdHotel(idHotel).size() == 0 && hotelModel != null){
             kamarKosong = true;
             hotelService.deleteHotel(hotelModel);
             model.addAttribute("kamarKosong", kamarKosong);
             model.addAttribute("hotelModel", hotelModel);
             return "delete-hotel";
-        }else{
+        }else if(kamarService.findAllKamarByIdHotel(idHotel).size() != 0 && hotelModel != null){
             kamarKosong = false;
             model.addAttribute("kamarKosong", kamarKosong);
             model.addAttribute("hotelModel", hotelModel);
             return "delete-error";
+        }else if(hotelModel == null){
+            return "error-page";
+        }else{
+            return "error-page";
         }
     }
 

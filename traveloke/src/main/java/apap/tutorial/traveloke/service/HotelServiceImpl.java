@@ -3,6 +3,7 @@ package apap.tutorial.traveloke.service;
 import apap.tutorial.traveloke.model.HotelModel;
 import apap.tutorial.traveloke.repository.HotelDb;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -43,5 +44,15 @@ public class HotelServiceImpl implements HotelService {
         } catch (NullPointerException nullException){
             return null;
         }
+    }
+
+    @Override
+    public void deleteHotel(HotelModel hotel) {
+        hotelDb.delete(hotel);
+    }
+
+    @Override
+    public List<HotelModel> getHotelListSorted() {
+        return hotelDb.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 }

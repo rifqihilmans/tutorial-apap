@@ -16,4 +16,11 @@ public interface HotelService {
 
     //Method untuk update hotel
     HotelModel updateHotel(HotelModel hotel);
+
+    //Method untuk hapus hotel
+    void deleteHotel(HotelModel hotel);
+
+    //Method untuk mendapatkan daftar Hotel yang tersimpan sort by ID DESC
+    List<HotelModel> getHotelListSorted();
+
 }

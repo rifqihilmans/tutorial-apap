@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Kamar</title>
+    <title>Update Kamar</title>
 </head>
 <body>
-<h2 th:text="'Kamar ' + ${kamar.namaKamar} + ' berhasil ditambahkan.'"></h2>
+<h3 th:text="'Kamar '+ ${kamar.namaKamar} + ' berhasil diubah'"></h3>
 <td><a th:href="@{/hotel/view?idHotel=}+${kamar.hotel.id}">View Hotel</a></td>
 </body>
 </html>

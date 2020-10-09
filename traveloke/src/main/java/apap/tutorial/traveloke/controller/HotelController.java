@@ -70,9 +70,51 @@ public class HotelController {
             Model model
     ){
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
-        List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
-        model.addAttribute("hotel", hotel);
-        model.addAttribute("listKamar", listKamar);
-        return "view-hotel";
+        boolean kamarKosong = true;
+        if (kamarService.findAllKamarByIdHotel(idHotel).size() != 0){
+            kamarKosong = true;
+            List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
+            model.addAttribute("hotel", hotel);
+            model.addAttribute("listKamar", listKamar);
+            model.addAttribute("kamarKosong", kamarKosong);
+            return "view-hotel";
+        }else{
+            kamarKosong = false;
+            model.addAttribute("hotel", hotel);
+            model.addAttribute("kamarKosong", kamarKosong);
+            return "view-hotel";
+        }
+
+    }
+
+    @GetMapping("/hotel/delete/{idHotel}")
+    public String deleteHotel(
+            @PathVariable Long idHotel,
+            Model model
+    ){
+        HotelModel hotelModel = hotelService.getHotelByIdHotel(idHotel);
+        boolean kamarKosong = true;
+        if(kamarService.findAllKamarByIdHotel(idHotel).size() == 0){
+            kamarKosong = true;
+            hotelService.deleteHotel(hotelModel);
+            model.addAttribute("kamarKosong", kamarKosong);
+            model.addAttribute("hotelModel", hotelModel);
+            return "delete-hotel";
+        }else{
+            kamarKosong = false;
+            model.addAttribute("kamarKosong", kamarKosong);
+            model.addAttribute("hotelModel", hotelModel);
+            return "delete-error";
+        }
+    }
+
+    @GetMapping("/hotel/view-all")
+    public String viewAllHotel(Model model){
+        List<HotelModel> listHotel = hotelService.getHotelListSorted();
+
+        model.addAttribute("listHotel", listHotel);
+
+        return "view-all-hotel";
+
     }
 }

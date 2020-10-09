@@ -43,4 +43,44 @@ public class KamarController {
         model.addAttribute("kamar", kamar);
         return "add-kamar";
     }
+
+    @GetMapping("/kamar/change/{noKamar}")
+    public String changeKamarFormPage(
+            @PathVariable Long noKamar,
+            Model model
+    ){
+        KamarModel kamar = new KamarModel();
+        HotelModel hotel = hotelService.getHotelByIdHotel(noKamar);
+        kamar.setHotel(hotel);
+        model.addAttribute("kamar", kamar);
+        return "form-update-kamar";
+    }
+
+    @PostMapping("/kamar/change")
+    public String changeKamarFormSubmit(
+            @ModelAttribute KamarModel kamar,
+            Model model
+    ){
+        KamarModel kamarModel = kamarService.updateKamar(kamar);
+        model.addAttribute("kamar", kamar);
+        return "update-kamar";
+    }
+
+    @GetMapping("/kamar/delete/{noKamar}")
+    public String deleteKamar(
+            @PathVariable Long noKamar,
+            Model model
+    ){
+        KamarModel kamar = kamarService.getKamarByNoKamar(noKamar);
+        boolean exists = true;
+        if (kamar != null){
+            kamarService.deleteKamar(kamar);
+            exists = true;
+        }else{
+            exists = false;
+        }
+        model.addAttribute("exists", exists);
+        model.addAttribute("kamar", kamar);
+        return "delete-kamar";
+    }
 }

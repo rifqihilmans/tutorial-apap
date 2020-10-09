@@ -63,6 +63,7 @@ public class KamarController {
     ){
         KamarModel kamarModel = kamarService.updateKamar(kamar);
         model.addAttribute("kamar", kamar);
+
         return "update-kamar";
     }
 

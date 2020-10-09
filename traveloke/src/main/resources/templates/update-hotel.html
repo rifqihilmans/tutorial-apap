@@ -6,6 +6,6 @@
 </head>
 <body>
     <h3 th:text="'Hotel '+ ${hotel.namaHotel} + ' berhasil diubah'"></h3>
-    <td><a th:href="@{/hotel/view?idHotel=}+${idHotel}">View Hotel</a></td>
+    <td><a th:href="@{/hotel/view?idHotel=}+${hotel.id}">View Hotel</a></td>
 </body>
 </html>

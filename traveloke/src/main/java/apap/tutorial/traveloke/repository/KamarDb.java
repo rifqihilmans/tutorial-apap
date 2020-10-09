@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface KamarDb extends JpaRepository<KamarModel, Long> {
     List<KamarModel> findByHotelId(Long hotelId);
+
+    KamarModel findByNoKamar(Long noKamar);
 }

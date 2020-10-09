@@ -33,8 +33,7 @@ public class KamarServiceImpl implements KamarService {
 
     @Override
     public KamarModel updateKamar(KamarModel kamar) {
-
-        KamarModel targetKamar = kamarDb.findById(kamar.getNoKamar()).get();
+        KamarModel targetKamar = kamarDb.findByNoKamar(kamar.getNoKamar());
         try{
             targetKamar.setNamaKamar(kamar.getNamaKamar());
             targetKamar.setTipe(kamar.getTipe());

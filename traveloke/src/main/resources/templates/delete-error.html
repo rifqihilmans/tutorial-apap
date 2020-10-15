@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Hotel</title>
+</head>
+<body>
+<h2 th:text="'Hotel tidak bisa dihapus karena memiliki kamar.'"></h2>
+<td><a th:href="@{/hotel/view?idHotel=}+${hotelModel.id}">Kembali</a></td>
+</body>
+</html>

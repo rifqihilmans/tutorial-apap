@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Hotel</title>
+</head>
+<body>
+<div th:if="${exists == true}">
+    <h2 th:text="'Kamar berhasil dihapus.'"></h2>
+</div>
+<div th:unless="${exists == true}">
+    <h2 th:text="'Kamar tidak ditemukan.'"></h2>
+</div>
+<td><a th:href="@{/hotel/view?idHotel=}+${kamar.hotel.id}">Kembali</a></td>
+</body>
+</html>

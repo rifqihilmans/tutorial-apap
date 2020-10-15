@@ -67,21 +67,22 @@ public class KamarController {
         return "update-kamar";
     }
 
-    @GetMapping("/kamar/delete/{noKamar}")
-    public String deleteKamar(
-            @PathVariable Long noKamar,
+    @PostMapping(path = "/kamar/delete")
+    public String deleteKamarFormSubmit(
+            @ModelAttribute HotelModel hotel,
             Model model
     ){
-        KamarModel kamar = kamarService.getKamarByNoKamar(noKamar);
-        boolean exists = true;
-        if (kamar != null){
+        model.addAttribute("kamarCount", hotel.getListKamar().size());
+        for(KamarModel kamar : hotel.getListKamar()){
             kamarService.deleteKamar(kamar);
+        }
+        boolean exists = true;
+        if (hotel.getListKamar().size() > 0){
             exists = true;
         }else{
             exists = false;
         }
         model.addAttribute("exists", exists);
-        model.addAttribute("kamar", kamar);
         return "delete-kamar";
     }
 }

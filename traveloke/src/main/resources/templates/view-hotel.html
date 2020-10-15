@@ -45,10 +45,15 @@
                             </td>
                             <td th:text="${kamar.kapasitasKamar}"></td>
                             <td><a th:href="@{/kamar/change}+${kamar.noKamar}">Change Data Kamar</a></td>
-                            <td><a th:href="@{/kamar/delete}+${kamar.noKamar}">Delete Kamar</a></td>
+                            <td>
+                                <input type="checkbox" th:field="*{listKamar}" th:value="${kamar.noKamar}"/>
+                                <label th:for="${#ids.prev('listKamar')}">Hapus</label>
+                            </td>
+<!--                            <td><a th:href="@{/kamar/delete}+${kamar.noKamar}">Delete Kamar</a></td>-->
                         </tr>
                     </tbody>
                 </table>
+                <button type="submit" class="btn btn-sm btn-danger">Hapus yang dipilih</button>
             </form>
         </div>
         <td><a th:href="@{/kamar/add/}+${hotel.id}">Add Kamar</a></td>

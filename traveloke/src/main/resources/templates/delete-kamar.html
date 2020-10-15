@@ -8,12 +8,13 @@
 </head>
 <body>
 <nav th:replace="fragments/fragment :: navbar"></nav>
-<div th:if="${exists == true}">
-    <h2 th:text="'Kamar berhasil dihapus.'"></h2>
-</div>
-<div th:unless="${exists == true}">
-    <h2 th:text="'Kamar tidak ditemukan.'"></h2>
-</div>
-<td><a th:href="@{/hotel/view?idHotel=}+${kamar.hotel.id}">Kembali</a></td>
+<h2 th:text="${kamarCount} + ' kamar telah dihapus'"></h2>
+<!--<div th:if="${exists == true}">-->
+<!--    <h2 th:text="'Kamar berhasil dihapus.'"></h2>-->
+<!--</div>-->
+<!--<div th:unless="${exists == true}">-->
+<!--    <h2 th:text="'Kamar tidak ditemukan.'"></h2>-->
+<!--</div>-->
+<!--<td><a th:href="@{/hotel/view?idHotel=}+${kamar.hotel.id}">Kembali</a></td>-->
 </body>
 </html>

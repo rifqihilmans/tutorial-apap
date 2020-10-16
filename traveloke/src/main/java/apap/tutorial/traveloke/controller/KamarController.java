@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class KamarController {
@@ -27,20 +28,49 @@ public class KamarController {
             @PathVariable Long idHotel,
             Model model
     ){
-        KamarModel kamar = new KamarModel();
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
-        kamar.setHotel(hotel);
-        model.addAttribute("kamar", kamar);
+        List<KamarModel> listKamar = new ArrayList<KamarModel>();
+        hotel.setListKamar(listKamar);
+        hotel.getListKamar().add(new KamarModel());
+        model.addAttribute("hotel", hotel);
         return "form-add-kamar";
     }
 
-    @PostMapping("/kamar/add")
-    private String addKamarSubmit(
-            @ModelAttribute KamarModel kamar,
+    @PostMapping(value = "/kamar/add/{idHotel}", params = {"addRow"})
+    private String addRowKamar(
+            @ModelAttribute HotelModel hotel,
             Model model
     ){
-        kamarService.addKamar(kamar);
-        model.addAttribute("kamar", kamar);
+        if(hotel.getListKamar()==null || hotel.getListKamar().size()==0){
+            hotel.setListKamar(new ArrayList<KamarModel>());
+        }
+        hotel.getListKamar().add(new KamarModel());
+        model.addAttribute("hotel", hotel);
+        return "form-add-kamar";
+    }
+
+    @PostMapping(value = "/kamar/add/{idHotel}", params = {"deleteRow"})
+    private String deleteRowKamar(
+            @ModelAttribute HotelModel hotel,
+            HttpServletRequest request,
+            Model model
+    ){
+        Integer rowId = Integer.valueOf(request.getParameter("deleteRow"));
+        hotel.getListKamar().remove(rowId.intValue());
+        model.addAttribute("hotel", hotel);
+        return "form-add-kamar";
+    }
+
+    @PostMapping(value = "/kamar/add/", params = {"save"})
+    private String addKamarSubmit(
+            @ModelAttribute HotelModel hotel,
+            Model model
+    ){
+        for (KamarModel kamar : hotel.getListKamar()){
+            kamar.setHotel(hotel);
+            kamarService.addKamar(kamar);
+        }
+        model.addAttribute("listKamar", hotel.getListKamar());
         return "add-kamar";
     }
 

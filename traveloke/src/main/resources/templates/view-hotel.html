@@ -56,14 +56,15 @@
                 <button type="submit" class="btn btn-sm btn-danger">Hapus yang dipilih</button>
             </form>
         </div>
-        <td><a th:href="@{/kamar/add/}+${hotel.id}">Add Kamar</a></td>
+        <a th:href="@{/kamar/add/}+${hotel.id}"><button type="submit" class="btn btn-primary">Add Kamar</button></a>
 </section>
 </div>
 <div th:unless="${kamarKosong == true}">
     <h2>Hotel belum memiliki daftar kamar</h2>
-    <td><a th:href="@{/kamar/add/}+${hotel.id}">Add Kamar</a></td>
+    <a th:href="@{/kamar/add/}+${hotel.id}"><button type="submit" class="btn btn-primary">Add Kamar</button></a>
+<!--    <td><a th:href="@{/kamar/add/}+${hotel.id}">Add Kamar</a></td>-->
 </div>
 <br>
-<td><a th:href="@{/}">Kembali</a></td>
+<a th:href="@{/}"><button type="submit" class="btn btn-danger">Kembali</button></a>
 </body>
 </html>

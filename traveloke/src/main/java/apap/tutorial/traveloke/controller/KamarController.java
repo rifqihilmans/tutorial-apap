@@ -36,7 +36,7 @@ public class KamarController {
         return "form-add-kamar";
     }
 
-    @PostMapping(value = "/kamar/add/{idHotel}", params = {"addRow"})
+    @PostMapping(value = "/kamar/add", params = {"addRow"})
     private String addRowKamar(
             @ModelAttribute HotelModel hotel,
             Model model
@@ -49,7 +49,7 @@ public class KamarController {
         return "form-add-kamar";
     }
 
-    @PostMapping(value = "/kamar/add/{idHotel}", params = {"deleteRow"})
+    @PostMapping(value = "/kamar/add", params = {"deleteRow"})
     private String deleteRowKamar(
             @ModelAttribute HotelModel hotel,
             HttpServletRequest request,

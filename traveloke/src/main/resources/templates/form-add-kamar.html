@@ -9,7 +9,7 @@
 <body>
 <nav th:replace="fragments/fragment :: navbar (title='Add Kamar')"></nav>
 <h3>Tambah Kamar</h3>
-<form th:action="@{/kamar/add/} + ${hotel.id}" th:object="${hotel}" method="POST">
+<form th:action="@{/kamar/add/}" th:object="${hotel}" method="POST">
     <table class="table">
         <thead>
         <tr>
@@ -47,7 +47,7 @@
             </tr>
         </tbody>
     </table>
-    <button type="submit" class="btn btn-sm btn-success" name="save" >Simpan</button>
+    <button type="submit" class="btn btn-sm btn-success" name="save">Simpan</button>
 </form>
 </body>
 </html>

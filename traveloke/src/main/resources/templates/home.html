@@ -7,7 +7,7 @@
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-    <nav th:replace="fragments/fragment :: navbar"></nav>
+    <nav th:replace="fragments/fragment :: navbar (title='Home')"></nav>
     <div class="container-fluid">
         <h2>Selamat Datang di Traveloke!</h2>
         <a th:href="@{/hotel/view-all}" class="btn btn-primary">View All</a>

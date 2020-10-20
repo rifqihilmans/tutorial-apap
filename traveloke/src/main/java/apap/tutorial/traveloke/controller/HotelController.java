@@ -5,6 +5,7 @@ import apap.tutorial.traveloke.model.HotelModel;
 import apap.tutorial.traveloke.model.KamarModel;
 import apap.tutorial.traveloke.service.HotelService;
 import apap.tutorial.traveloke.service.KamarService;
+import jdk.jfr.Timestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -130,4 +131,7 @@ public class HotelController {
         return "view-all-hotel";
 
     }
+
+    @Timestamp
+
 }

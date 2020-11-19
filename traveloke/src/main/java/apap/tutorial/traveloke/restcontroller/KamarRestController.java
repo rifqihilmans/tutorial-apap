@@ -33,8 +33,6 @@ public class KamarRestController {
                     HttpStatus.BAD_REQUEST, "Request body has invalid type or missing field"
             );
         }else{
-            HotelModel getHotel = hotelRestService.getHotelByIdHotel(1L);
-            kamar.setHotel(getHotel);
             ResponseEntity.ok("Add kamar success");
             return kamarRestService.createKamar(kamar);
         }

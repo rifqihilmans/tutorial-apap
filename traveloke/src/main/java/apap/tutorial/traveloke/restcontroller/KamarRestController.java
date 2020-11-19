@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -77,5 +78,10 @@ public class KamarRestController {
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND, "Kamar with ID "+ String.valueOf(noKamar)+ " Not Found!");
         }
+    }
+
+    @GetMapping(value = "/hotel/find")
+    private Mono<String> getApi(@RequestParam(value = "cityName") String cityName){
+        return kamarRestService.getApi(cityName);
     }
 }

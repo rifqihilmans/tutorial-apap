@@ -49,7 +49,7 @@ public class HotelRestServiceImpl implements HotelRestService{
         HotelModel hotel = getHotelByIdHotel(idHotel);
         hotel.setNamaHotel(hotelUpdate.getNamaHotel());
         hotel.setAlamat(hotelUpdate.getAlamat());
-        hotel.setNomorTelepon(hotel.getNomorTelepon());
+        hotel.setNomorTelepon(hotelUpdate.getNomorTelepon());
         return hotelDb.save(hotel);
     }
 

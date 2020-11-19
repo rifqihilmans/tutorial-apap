@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Delete Hotel</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-<div th:if="${exists == true}">
-    <h2 th:text="'Kamar berhasil dihapus.'"></h2>
-</div>
-<div th:unless="${exists == true}">
-    <h2 th:text="'Kamar tidak ditemukan.'"></h2>
-</div>
-<td><a th:href="@{/hotel/view?idHotel=}+${kamar.hotel.id}">Kembali</a></td>
+<nav th:replace="fragments/fragment :: navbar (title='Delete Kamar')"></nav>
+<h2 th:text="${kamarCount} + ' kamar telah dihapus'"></h2>
+<!--<div th:if="${exists == true}">-->
+<!--    <h2 th:text="'Kamar berhasil dihapus.'"></h2>-->
+<!--</div>-->
+<!--<div th:unless="${exists == true}">-->
+<!--    <h2 th:text="'Kamar tidak ditemukan.'"></h2>-->
+<!--</div>-->
+<!--<td><a th:href="@{/hotel/view?idHotel=}+${kamar.hotel.id}">Kembali</a></td>-->
 </body>
 </html>

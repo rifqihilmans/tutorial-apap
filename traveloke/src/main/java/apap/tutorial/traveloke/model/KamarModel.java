@@ -23,7 +23,7 @@ public class KamarModel implements Serializable{
 
     @NotNull
     @Column(name = "tipe", nullable = false)
-    private String tipe;
+    private Integer tipe;
 
     @NotNull
     @Column(name = "kapasitasKamar", nullable = false)
@@ -51,11 +51,11 @@ public class KamarModel implements Serializable{
         this.namaKamar = namaKamar;
     }
 
-    public String getTipe() {
+    public Integer getTipe() {
         return tipe;
     }
 
-    public void setTipe(String tipe) {
+    public void setTipe(Integer tipe) {
         this.tipe = tipe;
     }
 

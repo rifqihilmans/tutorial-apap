@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Delete Hotel</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
+<nav th:replace="fragments/fragment :: navbar (title='Delete Hotel')"></nav>
 <div th:if="${kamarKosong == true}">
     <h2 th:text="'Hotel berhasil dihapus.'"></h2>
 </div>

@@ -53,4 +53,16 @@ Perbedaan dari @RequestParam dan @PathVariable terletak pada keyword yang terdap
 5. FetchType.LAZY digunakan ketika kita ingin melakukan fetch data ketika dibutuhkan atau dipanggil dengan suatu method. CascadeType.ALL adalah melakukan semua perubahan untuk suatu entity. Perubahan-perubahan yang dapat dilakukan seperti persist, remove, refresh dan merge. FetchType.EAGER adalah fetch data dilakukan secepatnya dan akan load semua relationship 
 
 ### What I did not understand
-- [ ] Saya belum mengerti penggunaan @PostMapping   
+- [ ] Saya belum mengerti penggunaan @PostMapping
+
+---
+## Tutorial 4
+### What I have learned today
+*Saya belajar mengenai penggunaan Thymeleaf lebih lanjut*
+1. th:include akan memasukan semua content yang ada di fragment ke dalam tag yang akan dimasukkan. Sedangkan th:replace akan menggantikan isi dari tag dengan fragment.
+2. th:object digunakan untuk menentukan object yang akan menjadi tempat suatu form data yang akan disubmit.
+3. $ dapat digunakan kapan saja, karena $ merupakan ekspresi atau syntax yang umum. Sedangkan * melakukannya pada objek yang dipilih, bukan pada keseluruhan.
+4. Pada latihan nomor 3, saya membuat tag anchor baru yang akan direct ke # dengan nama {title}. {title} tersebut akan berubah sesuai page yang sedang dibuka. Saya menambahkan (title='Nama Page yang Dibuka') pada setiap halaman disesuaikan dengan page yang sedang dibuka. Penambahan tersebut saya buat berada di tag nav yang ada di semua html yang.
+
+### What I did not understand
+- [ ] Saya belum mengerti syntax yang terdapat di contoh html untuk delete kamar yang berada di view-hotel

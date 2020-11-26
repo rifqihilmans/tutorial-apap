@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" th:if="${role} == 'ADMIN'">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">Tambah User Baru</div>
@@ -55,11 +55,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">Update Password</div>
                     <div class="card-body">
-                        <a th:href="@{/user/updatePassword}"><button type="submit" class="btn btn-danger">Update Password</button></a>
+                        <a th:href="@{/user/updatePassword}"><button type="submit" class="btn btn-warning">Update Password</button></a>
                     </div>
                 </div>
             </div>

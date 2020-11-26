@@ -77,3 +77,14 @@ Perbedaan dari @RequestParam dan @PathVariable terletak pada keyword yang terdap
 4. ResponseEntity merepresentasikan HTTP Response, termasuk header, body, status. Kegunaannya adalah kita dapat melakukan konfigurasi penuh terhadap HTTP Response. BindingResult akan menyimpan hasil validasi dan pengikatan dan kesalahan yang mungkin terjadi. BindingResult harus muncul tepat setelah objek model divalidasi atau Spring gagal untuk memvalidasi objek tersebut dan akan throw exception. 
 ### What I did not understand
 - [ ] Saya belum mengerti kegunaan dari example
+
+---
+## Tutorial 6
+### What I have learned today
+*Saya belajar mengenai Web Security*
+1. Otentikasi adalah sebuah proses untuk memverifikasi. Verifikasi dilakukan dengan memasukkan username dan password yang sesuai. Implementasi pada code adalah saat melakukan login. Sedangkan, otorisasi adalah sebuah proses apakah seseorang memiliki akses/izin terhadap sesuatu. Implementasi pada code adalah di WebSecurityConfig dimana hanya ADMIN yang dapat menambahkan user baru.
+2. BCryptPasswordEncoder adalah sebuah fungsi/tool yang digunakan untuk hashing pada password. Setiap kali dipanggil, BCryptPasswordEncoder akan melakukan encoding dengan memanfaatkan hashing agar keamanan password terjamin.
+3. UUID adalah sekumpulan karakter yang terdiri dari 32 karakter dan 4 tanda hubung. UUID pasti unik untuk setiap data dan dapat digunakan untuk Primary Key. UUID juga dapat meningkatkan keamanan karena karakter yang ada pada UUID random.
+4. UserDetailsServiceImpl.java berguna dalam otentikasi dan otorisasi. Dalam class tersebut mengextends UserServiceDetail yang akan berisi object yang didapatkan dari database dan melakukan otorisasi sesuai role.  
+### What I did not understand
+- [ ]

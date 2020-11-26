@@ -66,3 +66,14 @@ Perbedaan dari @RequestParam dan @PathVariable terletak pada keyword yang terdap
 
 ### What I did not understand
 - [ ] Saya belum mengerti syntax yang terdapat di contoh html untuk delete kamar yang berada di view-hotel
+
+---
+## Tutorial 5
+### What I have learned today
+*Saya belajar mengenai API*
+1. Postman merupakan sebuah tool yang digunakan untuk membedah Restful API, baik yang dibuat oleh orang lain maupun yang kita buat. Postman dapat digunakan untuk Testing API, GUI App Caller dan yang lainnya
+2. @JsonIgnoreProperties digunakan untuk mengabaikan properties dalam Json serialization dan deserialization, serta digunakan pada class level. Sedangkan @JsonIgnore digunakan pada field level untuk menandakan property atau kumpulan properti yang ingin diabaikan
+3. WebClient merupakan sebuah komponen/interface Web Reactive Framework. Kegunaannya adalah akan membantu membangun sebuah aplikasi web yang reaktif dan non-pemblokiran
+4. ResponseEntity merepresentasikan HTTP Response, termasuk header, body, status. Kegunaannya adalah kita dapat melakukan konfigurasi penuh terhadap HTTP Response. BindingResult akan menyimpan hasil validasi dan pengikatan dan kesalahan yang mungkin terjadi. BindingResult harus muncul tepat setelah objek model divalidasi atau Spring gagal untuk memvalidasi objek tersebut dan akan throw exception. 
+### What I did not understand
+- [ ] Saya belum mengerti kegunaan dari example

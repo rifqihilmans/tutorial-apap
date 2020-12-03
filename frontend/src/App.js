@@ -9,6 +9,13 @@ export default class App extends React.Component{
     favItems: [],
     del: "Delete",
     isActive: false,
+    favList: false,
+  };
+
+  showFavoriteList = () => {
+    this.setState({
+      favList: !this.state.favList
+    });
   };
 
   handleDeleteButtonFav = (deleteItem) => {
@@ -48,7 +55,7 @@ export default class App extends React.Component{
   }
 
   render(){
-    const { favItems } = this.state;
+    const { favItems, favList } = this.state;
 
     return (
       <div className="container-fluid">
@@ -56,6 +63,9 @@ export default class App extends React.Component{
         <p className="text-center text-secondary text-sm font-italic">
           (This is a  <strong>class-based</strong> application)
         </p>
+        <div className="text-center">
+          <input className="text-center" type="checkbox" onClick={this.showFavoriteList} /> Show Favorites
+        </div>
         <div className="container pt-3">
           <div className="row">
             <div className="col-sm">
@@ -65,7 +75,7 @@ export default class App extends React.Component{
                 onItemClick={this.handleItemClick} 
               />
             </div>
-            <div className="col-sm">
+            <div className={`col-sm ${favList ? "d-block" : "d-none"}`}>
               <List
                 title="My Favorites"
                 items={favItems}

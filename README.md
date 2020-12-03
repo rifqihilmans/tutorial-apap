@@ -94,9 +94,13 @@ Perbedaan dari @RequestParam dan @PathVariable terletak pada keyword yang terdap
 ### What I have learned today
 *Saya belajar mengenai React*
 1. Pada latihan nomor 1, saya menambahkan code berikut ini yang bertujuan agar checkbox di bagian kiri hilang
+
 ![1](https://user-images.githubusercontent.com/60379157/101024863-4e09ae80-35a7-11eb-8698-0b6fedbf778b.jpg)
+
 Hasilnya adalah sebagai berikut
+
 ![2](https://user-images.githubusercontent.com/60379157/101024951-6e396d80-35a7-11eb-938f-77dcedb13337.jpg)
+
 Pada latihan nomor 2, saya menambahkan boolean isActive: false
 
 ![3](https://user-images.githubusercontent.com/60379157/101025031-8c06d280-35a7-11eb-95ba-fe638f9f534b.jpg)
@@ -105,23 +109,31 @@ Lalu saya juga membuat event handler yang ketika diklik akan menghapus list favo
 ![4](https://user-images.githubusercontent.com/60379157/101025138-b6589000-35a7-11eb-84f8-58a3154c334f.jpg)
 
 Saya juga setState dengan menunjukkan bahwa isActive = true yang membuat button akan muncul saat klik film di bagian kiri
+
 ![5](https://user-images.githubusercontent.com/60379157/101025283-f3248700-35a7-11eb-8b72-c684f8437867.jpg)
 
 Selanjutnya saya membuat button yang akan berfungsi sesuai dengan yang sudah dibuat, dimana ketika isActive = false, akan menghasilkan null dan button akan hilang
+
 ![6](https://user-images.githubusercontent.com/60379157/101025460-3121ab00-35a8-11eb-8ddd-c022fd8b286d.jpg)
 
 Hasilnya akan menjadi seperti ini, kondisi ini adalah ketika belum klik film dan button delete tidak ada
+
 ![7](https://user-images.githubusercontent.com/60379157/101025657-77770a00-35a8-11eb-8960-c0f5a97fcf5b.jpg)
 
 Ini kondisi ketika film sudah diklik dan akan muncul button Delete
+
 ![8](https://user-images.githubusercontent.com/60379157/101025661-7940cd80-35a8-11eb-8dd2-d0c8f6af99af.jpg)
 
 Pada latihan nomor 3, saya membuat event handler untuk list movies dan list favorite sebagai berikut ini dimana pada handler untuk list movies, tidak terdapat method splice yang dapat menghapus item dan handler untuk list favorite sama seperti tutorial ini
+
 ![5](https://user-images.githubusercontent.com/60379157/101025283-f3248700-35a7-11eb-8b72-c684f8437867.jpg)
+
 ![16](https://user-images.githubusercontent.com/60379157/101026543-9b871b00-35a9-11eb-828f-0ff8e304eeac.jpg)
 
 Lalu, event handler tersebut akan dipanggil
+
 ![15](https://user-images.githubusercontent.com/60379157/101026540-9aee8480-35a9-11eb-8e5e-f0a540dd51c0.jpg)
+
 ![17](https://user-images.githubusercontent.com/60379157/101026549-9cb84800-35a9-11eb-9222-03e5ec342a0d.jpg)
 
 Pada latihan nomor 4, saya membuat toggle berupa checkbox yang ketika diklik akan menampilkan list favorite. Saya membuat boolean favList: false
@@ -141,11 +153,13 @@ Selanjutnya saya membuat kondisi ketika favList true, maka akan menampilkan list
 ![13](https://user-images.githubusercontent.com/60379157/101026534-99bd5780-35a9-11eb-8493-b0ff8698c2dc.jpg)
 
 Hasilnya adalah sebagai berikut 
+
 ![10](https://user-images.githubusercontent.com/60379157/101025820-af7e4d00-35a8-11eb-9ff5-bd82ed21194b.jpg)
 
 ![9](https://user-images.githubusercontent.com/60379157/101025826-b1e0a700-35a8-11eb-8e4d-9da15be5e4c2.jpg)
 
 Pada latihan nomor 5, saya membuat component baru yaitu EmptyState
+
 ![14](https://user-images.githubusercontent.com/60379157/101026536-9a55ee00-35a9-11eb-8ee8-d8e4720ecc11.jpg)
 
 Lalu saya juga menambahkan kondisi ketika favItems lebih dari 0, maka akan menampilkan isi dari list tersebut, jika tidak lebih dari 0 atau tidak ada isinya maka akan menampilkan EmptyState yang telah dibuat

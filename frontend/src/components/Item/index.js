@@ -26,6 +26,7 @@ export default function Item(props){
                                 type="checkbox"
                                 checked={checked}
                                 onChange={handleChange}
+                                type={checked ? "checkbox" : "hidden"}
                             />
                         </h5>
                     </div>

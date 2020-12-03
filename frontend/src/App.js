@@ -7,9 +7,19 @@ import './App.css';
 export default class App extends React.Component{
   state = {
     favItems: [],
+    del: "Delete",
+    isActive: false,
   };
 
-  handleItemClick = (item) => {
+  handleDeleteButtonFav = (deleteItem) => {
+    this.setState({
+      favItems: deleteItem,
+    }, () => {console.log(this.state.favItems)});
+    this.setState({isActive: false});
+  };
+
+
+  handleItemClickforFav = (item) => {
     //Immutability
     const newItems = [ ...this.state.favItems];
     const newItem = { ...item };
@@ -22,6 +32,20 @@ export default class App extends React.Component{
     //Trigger set state
     this.setState({ favItems: newItems });
   };
+
+  handleItemClick = (item) =>{
+    //Immutability
+    const newItems = [ ...this.state.favItems];
+    const newItem = { ...item };
+    //Find item index using id
+    const targetInd = newItems.findIndex((it) => it.id === newItem.id);
+
+    if(targetInd < 0) newItems.push(newItem);
+
+    this.setState({isActive: true});
+    //Trigger set state
+    this.setState({ favItems: newItems });
+  }
 
   render(){
     const { favItems } = this.state;
@@ -45,10 +69,17 @@ export default class App extends React.Component{
               <List
                 title="My Favorites"
                 items={favItems}
-                onItemClick={this.handleItemClick}
+                onItemClick={this.handleItemClickforFav }
               />
             </div>
           </div>
+        </div>
+        <div className="text-center">
+          {this.state.isActive? (
+            <button onClick={() => {this.handleDeleteButtonFav([])}}>{this.state.del}</button>
+          ) : (
+            null
+          )}
         </div>
       </div>
     );

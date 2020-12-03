@@ -2,6 +2,7 @@ import React from "react";
 
 import List from "components/List";
 import listMovies from "movies.json";
+import EmptyState from "./components/EmptyState";
 import './App.css';
 
 export default class App extends React.Component{
@@ -76,11 +77,13 @@ export default class App extends React.Component{
               />
             </div>
             <div className={`col-sm ${favList ? "d-block" : "d-none"}`}>
-              <List
+              {this.state.favItems.length > 0 ? 
+                <List
                 title="My Favorites"
                 items={favItems}
                 onItemClick={this.handleItemClickforFav }
-              />
+              /> : <EmptyState/>
+              }
             </div>
           </div>
         </div>

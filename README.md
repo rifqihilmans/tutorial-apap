@@ -88,3 +88,76 @@ Perbedaan dari @RequestParam dan @PathVariable terletak pada keyword yang terdap
 4. UserDetailsServiceImpl.java berguna dalam otentikasi dan otorisasi. Dalam class tersebut mengextends UserServiceDetail yang akan berisi object yang didapatkan dari database dan melakukan otorisasi sesuai role.  
 ### What I did not understand
 - [ ]
+
+---
+## Tutorial 7
+### What I have learned today
+*Saya belajar mengenai React*
+1. Pada latihan nomor 1, saya menambahkan code berikut ini yang bertujuan agar checkbox di bagian kiri hilang
+![1](https://user-images.githubusercontent.com/60379157/101024863-4e09ae80-35a7-11eb-8698-0b6fedbf778b.jpg)
+Hasilnya adalah sebagai berikut
+![2](https://user-images.githubusercontent.com/60379157/101024951-6e396d80-35a7-11eb-938f-77dcedb13337.jpg)
+Pada latihan nomor 2, saya menambahkan boolean isActive: false
+
+![3](https://user-images.githubusercontent.com/60379157/101025031-8c06d280-35a7-11eb-95ba-fe638f9f534b.jpg)
+
+Lalu saya juga membuat event handler yang ketika diklik akan menghapus list favorite 
+![4](https://user-images.githubusercontent.com/60379157/101025138-b6589000-35a7-11eb-84f8-58a3154c334f.jpg)
+
+Saya juga setState dengan menunjukkan bahwa isActive = true yang membuat button akan muncul saat klik film di bagian kiri
+![5](https://user-images.githubusercontent.com/60379157/101025283-f3248700-35a7-11eb-8b72-c684f8437867.jpg)
+
+Selanjutnya saya membuat button yang akan berfungsi sesuai dengan yang sudah dibuat, dimana ketika isActive = false, akan menghasilkan null dan button akan hilang
+![6](https://user-images.githubusercontent.com/60379157/101025460-3121ab00-35a8-11eb-8ddd-c022fd8b286d.jpg)
+
+Hasilnya akan menjadi seperti ini, kondisi ini adalah ketika belum klik film dan button delete tidak ada
+![7](https://user-images.githubusercontent.com/60379157/101025657-77770a00-35a8-11eb-8960-c0f5a97fcf5b.jpg)
+
+Ini kondisi ketika film sudah diklik dan akan muncul button Delete
+![8](https://user-images.githubusercontent.com/60379157/101025661-7940cd80-35a8-11eb-8dd2-d0c8f6af99af.jpg)
+
+Pada latihan nomor 3, saya membuat event handler untuk list movies dan list favorite sebagai berikut ini dimana pada handler untuk list movies, tidak terdapat method splice yang dapat menghapus item dan handler untuk list favorite sama seperti tutorial ini
+![5](https://user-images.githubusercontent.com/60379157/101025283-f3248700-35a7-11eb-8b72-c684f8437867.jpg)
+![16](https://user-images.githubusercontent.com/60379157/101026543-9b871b00-35a9-11eb-828f-0ff8e304eeac.jpg)
+
+Lalu, event handler tersebut akan dipanggil
+![15](https://user-images.githubusercontent.com/60379157/101026540-9aee8480-35a9-11eb-8e5e-f0a540dd51c0.jpg)
+![17](https://user-images.githubusercontent.com/60379157/101026549-9cb84800-35a9-11eb-9222-03e5ec342a0d.jpg)
+
+Pada latihan nomor 4, saya membuat toggle berupa checkbox yang ketika diklik akan menampilkan list favorite. Saya membuat boolean favList: false
+
+![3](https://user-images.githubusercontent.com/60379157/101025031-8c06d280-35a7-11eb-95ba-fe638f9f534b.jpg)
+
+Lalu saya membuat event handler untuk menampilkan list favorite
+
+![11](https://user-images.githubusercontent.com/60379157/101025825-b1481080-35a8-11eb-892b-bcc91798f6aa.jpg)
+
+Saya juga menambahkan favList
+
+![12](https://user-images.githubusercontent.com/60379157/101026528-988c2a80-35a9-11eb-8562-5c095b479f97.jpg)
+
+Selanjutnya saya membuat kondisi ketika favList true, maka akan menampilkan list favorite dan tidak menampilkan list favorite jika bernilai false
+
+![13](https://user-images.githubusercontent.com/60379157/101026534-99bd5780-35a9-11eb-8493-b0ff8698c2dc.jpg)
+
+Hasilnya adalah sebagai berikut 
+![10](https://user-images.githubusercontent.com/60379157/101025820-af7e4d00-35a8-11eb-9ff5-bd82ed21194b.jpg)
+
+![9](https://user-images.githubusercontent.com/60379157/101025826-b1e0a700-35a8-11eb-8e4d-9da15be5e4c2.jpg)
+
+Pada latihan nomor 5, saya membuat component baru yaitu EmptyState
+![14](https://user-images.githubusercontent.com/60379157/101026536-9a55ee00-35a9-11eb-8ee8-d8e4720ecc11.jpg)
+
+Lalu saya juga menambahkan kondisi ketika favItems lebih dari 0, maka akan menampilkan isi dari list tersebut, jika tidak lebih dari 0 atau tidak ada isinya maka akan menampilkan EmptyState yang telah dibuat
+![18](https://user-images.githubusercontent.com/60379157/101029148-8ca16800-35ab-11eb-9b40-2ff4d07c5393.jpg)
+
+Hasilnya adalah sebagai berikut
+![9](https://user-images.githubusercontent.com/60379157/101025826-b1e0a700-35a8-11eb-8e4d-9da15be5e4c2.jpg)
+
+2. Props adalah variable yang akan dipass dari component parentnya. Sedangkan state adalah variable/tempat penyimpanan yang diinisialisasi dan dimanage oleh component itu sendiri.
+3. Keuntungan yang didapatkan adalah reusable. Component-component yang dibuat terpisah dapat disusun menjadi satu kesatuan. Contohnya adalah pada tutorial ini membuat component secara terpisah yaitu Item dan List yang dapat digunakan sesuai dengan kebutuhannya
+4. Kelebihan dari React adalah reusable, efisien dan juga memiliki performance yang bagus
+5. Kekurangan dari React adalah syntax yang terkadang membingungkan karena menggabungkan JSX syntax untuk membuat Javascript object dengan syntax HTML selain itu sulit untuk dipahami apabila baru pertama kali mengembangkan web
+
+### What I did not understand
+- [ ] Saya masih harus mempelajari React lebih lanjut agar terbiasa dengan syntaxnya

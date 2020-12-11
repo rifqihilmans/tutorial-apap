@@ -175,3 +175,25 @@ Hasilnya adalah sebagai berikut
 
 ### What I did not understand
 - [ ] Saya masih harus mempelajari React lebih lanjut agar terbiasa dengan syntaxnya
+
+---
+## Tutorial 8
+### What I have learned today
+*Saya belajar lebih mengenai React*
+1. Saya set state namaHotel, alamat dan noTelepon menjadi "" pada handleSubmitHotel. Hal tersebut membuat value yang telah diisi melalui form akan kembali kereset menjadi kosong
+2. Async akan mendefinisikan asynchronous function yang akan mereturn AsyncFunction objek/pasti mereturn sesuatu dan dapat menjalankan suatu fungsi secara bersamaan. Sedangkan await hanya akan ada di dalam fungsi async. Kita menggunakan await ketika ingin fetch data dari server dan menggunakan data tersebut dalam async. Lalu, await akan menghentikan eksekusi fungsi secara sementara dan menjalankannya kembali setelah datanya sudah ada.
+3. 
+![Screenshot (1003)](https://user-images.githubusercontent.com/60379157/101915956-e1229400-3bf8-11eb-8c27-14f6c358b82c.png)
+
+![Screenshot (1006)](https://user-images.githubusercontent.com/60379157/101916065-031c1680-3bf9-11eb-8ae9-c41b4e692861.png)
+
+![Screenshot (1007)](https://user-images.githubusercontent.com/60379157/101916057-00b9bc80-3bf9-11eb-8f5f-fff0ce84bbf8.png)
+
+4. componentDidMount: akan dieksekusi setelah render pertama selesai. Selain itu juga dapat digunakan untuk mengintegrasikan dengan framework JavaScript lain. Kita menggunakannya ketika ingin update state
+shouldComponentUpdate: akan return true atau false dan menentukan apakah component akan diupdate atau tidak
+componentDidUpdate: akan dipanggil setelah terjadi pembaruan
+componentWillReceiveProps: akan dipanggil setelah props diupdate sebelum render selanjutnya dipanggil
+componentWillUnmount: akan dipanggil ketika component dihapus dari DOM
+
+### What I did not understand
+- [ ]

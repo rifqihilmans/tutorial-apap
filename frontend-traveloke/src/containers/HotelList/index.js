@@ -10,6 +10,7 @@ class HotelList extends Component{
         super(props);
         this.state = {
             hotels: [],
+            listKamar: [],
             isLoading: false,
             isCreate: false,
             isEdit: false,
@@ -20,6 +21,8 @@ class HotelList extends Component{
             nomorTelepon:"",
             namaKamar: "",
             kapasitasKamar: "",
+            page: 1,
+            totalPerPage: 5,
         };
         this.handleAddHotel = this.handleAddHotel.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
@@ -29,6 +32,7 @@ class HotelList extends Component{
         this.handleSubmitEditHotel = this.handleSubmitEditHotel.bind(this);
         this.handleDeleteHotel = this.handleDeleteHotel.bind(this);
         this.handleSearchInput = this.handleSearchInput.bind(this);
+        this.handlePagination = this.handlePagination.bind(this);
     }
 
     handleSearchInput(event) {
@@ -134,8 +138,18 @@ class HotelList extends Component{
         }
     }
 
+    handlePagination(event){
+        this.setState({
+            page: Number(event.target.id)
+        });
+    }
+
     render(){
-        const test = this.state.hotels.map((kamar) => {
+        const { hotels, totalPerPage } = this.state;
+
+        const listHotel = hotels.slice(0, 5);
+
+        const test = this.state.listKamar.map((kamar) => {
             {kamar.listKamar.map(function (role, i) { 
                 return <div key={i}>
                     <p>{role.namaKamar}</p>
@@ -143,34 +157,21 @@ class HotelList extends Component{
                 </div>
             })}
         })
-        const { isSearch } = this.state;
-        const listFilteredHotel = isSearch ? this.state.filteredHotel.map(hotel => {
-            return(
-                <Hotel
-                key={hotel.id}
-                id={hotel.id}
-                namaHotel={hotel.namaHotel}
-                alamat={hotel.alamat}
-                nomorTelepon={hotel.nomorTelepon}
-                namaKamar={hotel.listKamar.namaKamar}
-                kapasitasKamar={hotel.listKamar.kapasitasKamar}
-                handleEdit={() => this.handleEditHotel(hotel)}
-                handleDelete={() => this.handleDeleteHotel(hotel.id)}
-                />
-            )
-        }) : this.state.hotels.map(hotel => {
-            return(
-                <Hotel
-                key={hotel.id}
-                id={hotel.id}
-                namaHotel={hotel.namaHotel}
-                alamat={hotel.alamat}
-                nomorTelepon={hotel.nomorTelepon}
-                namaKamar={hotel.listKamar[1]}
-                kapasitasKamar={hotel.listKamar.kapasitasKamar}
-                handleEdit={() => this.handleEditHotel(hotel)}
-                handleDelete={() => this.handleDeleteHotel(hotel.id)}
-                />
+        
+
+        const numbers = [];
+        for (let i = 1; i <= Math.ceil(hotels.length / totalPerPage); i++) {
+            numbers.push(i);
+        }
+        const pageNumbers = numbers.map(num => {
+            return (
+                <button
+                    key={num}
+                    id={num}
+                    onClick={this.handlePagination}
+                    >
+                    {num}
+                </button>
             );
         });
     
@@ -189,7 +190,35 @@ class HotelList extends Component{
                     />
                 </form>
                 <div>
-                    {listFilteredHotel}
+                    {this.state.isSearch ? this.state.filteredHotel.map(hotel => {
+                        return(
+                            <Hotel
+                            key={hotel.id}
+                            id={hotel.id}
+                            namaHotel={hotel.namaHotel}
+                            alamat={hotel.alamat}
+                            nomorTelepon={hotel.nomorTelepon}
+                            namaKamar={hotel.listKamar.namaKamar}
+                            kapasitasKamar={hotel.listKamar.kapasitasKamar}
+                            handleEdit={() => this.handleEditHotel(hotel)}
+                            handleDelete={() => this.handleDeleteHotel(hotel.id)}
+                            />
+                        )
+                    }) : listHotel.map(hotel => {
+                        return(
+                            <Hotel
+                            key={hotel.id}
+                            id={hotel.id}
+                            namaHotel={hotel.namaHotel}
+                            alamat={hotel.alamat}
+                            nomorTelepon={hotel.nomorTelepon}
+                            namaKamar={hotel.listKamar.namaKamar}
+                            kapasitasKamar={hotel.listKamar.kapasitasKamar}
+                            handleEdit={() => this.handleEditHotel(hotel)}
+                            handleDelete={() => this.handleDeleteHotel(hotel.id)}
+                            />
+                        );
+                    })}
                     {test}
                 </div>
                 <Modal show={this.state.isCreate || this.state.isEdit} handleCloseModal = {this.handleCancel}>
@@ -238,6 +267,9 @@ class HotelList extends Component{
                         </Button>
                     </form>
                 </Modal>
+                <div>
+                    {pageNumbers}
+                </div>
             </div>
         );
     }

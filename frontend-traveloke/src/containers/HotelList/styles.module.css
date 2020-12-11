@@ -36,3 +36,14 @@
     margin: 16px 0;
     resize: none;
 }
+
+.search{
+    width: 100%;
+    border: 1px solid #ccc;
+    z-index: 1;
+    padding: 10px;
+    margin: auto;
+    box-sizing:border-box;
+    display: block;
+
+}

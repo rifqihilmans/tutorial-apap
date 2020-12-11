@@ -13,6 +13,8 @@ class HotelList extends Component{
             isLoading: false,
             isCreate: false,
             isEdit: false,
+            isSearch: false,
+            query: "",
             namaHotel:"",
             alamat:"",
             nomorTelepon:"",
@@ -24,7 +26,24 @@ class HotelList extends Component{
         this.handleEditHotel = this.handleEditHotel.bind(this);
         this.handleSubmitEditHotel = this.handleSubmitEditHotel.bind(this);
         this.handleDeleteHotel = this.handleDeleteHotel.bind(this);
+        this.handleSearchInput = this.handleSearchInput.bind(this);
     }
+
+    handleSearchInput(event) {
+        const query = event.target.value;
+        this.setState({ isSearch: true });
+        
+        this.setState(a => {
+            const filteredHotel = a.hotels.filter(e => {
+                return e.namaHotel.toLowerCase().startsWith(query.toLowerCase());
+            });
+        
+            return {
+                query,
+                filteredHotel,
+            };
+        });
+    };
 
     handleAddHotel(){
         this.setState({ isCreate: true });
@@ -114,24 +133,50 @@ class HotelList extends Component{
     }
 
     render(){
+        const { isSearch } = this.state;
+
+        const listFilteredHotel = isSearch ? this.state.filteredHotel.map(hotel => {
+            return(
+                <Hotel
+                key={hotel.id}
+                id={hotel.id}
+                namaHotel={hotel.namaHotel}
+                alamat={hotel.alamat}
+                nomorTelepon={hotel.nomorTelepon}
+                handleEdit={() => this.handleEditHotel(hotel)}
+                handleDelete={() => this.handleDeleteHotel(hotel.id)}
+                />
+            )
+        }) : this.state.hotels.map(hotel => {
+            return(
+                <Hotel
+                key={hotel.id}
+                id={hotel.id}
+                namaHotel={hotel.namaHotel}
+                alamat={hotel.alamat}
+                nomorTelepon={hotel.nomorTelepon}
+                handleEdit={() => this.handleEditHotel(hotel)}
+                handleDelete={() => this.handleDeleteHotel(hotel.id)}
+                />
+            );
+        });
+    
         return(
             <div className={classes.hotelList}>
                 <h1 className={classes.title}>All Hotels</h1>
                 <Button onClick={this.handleAddHotel} variant="primary">
                     Add Hotel
                 </Button>
+                <form>
+                    <input
+                    className={classes.search}
+                    placeholder="Cari hotel"
+                    value={this.state.query}
+                    onChange={this.handleSearchInput}
+                    />
+                </form>
                 <div>
-                    {this.state.hotels.map((hotel) => (
-                        <Hotel
-                        key={hotel.id}
-                        id={hotel.id}
-                        namaHotel={hotel.namaHotel}
-                        alamat={hotel.alamat}
-                        nomorTelepon={hotel.nomorTelepon}
-                        handleEdit={() => this.handleEditHotel(hotel)}
-                        handleDelete={() => this.handleDeleteHotel(hotel.id)}
-                        />
-                    ))}
+                    {listFilteredHotel}
                 </div>
                 <Modal show={this.state.isCreate || this.state.isEdit} handleCloseModal = {this.handleCancel}>
                     <form>

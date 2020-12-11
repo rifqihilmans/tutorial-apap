@@ -1,9 +1,10 @@
 import React from "react";
 import classes from "./styles.module.css";
 import Button from "../../components/Button";
+import Kamar from "../../components/Kamar";
 
 const Hotel = (props) => {
-    const { id, namaHotel, alamat, nomorTelepon, namaKamar, kapasitasKamar, handleEdit, handleDelete } = props;
+    const { id, namaHotel, alamat, nomorTelepon, listKamar, handleEdit, handleDelete } = props;
     return (
         <div className={classes.hotel}>
             <h3>{`ID Hotel ${id}`}</h3>
@@ -11,8 +12,20 @@ const Hotel = (props) => {
             <p>{`Alamat: ${alamat}`}</p>
             <p>{`Nomor telepon: ${nomorTelepon}`}</p>
             <p>List kamar:</p>
-            <p>{`${namaKamar}`}</p>
-            <p>{`${kapasitasKamar}`}</p>
+            <div>
+                {listKamar.length === 0 ? <h4>Hotel tidak memiliki kamar</h4> : null }
+            </div>
+
+            <div>
+                {listKamar.map((kamar => (
+                    <div className={classes.hotel}>
+                        <Kamar
+                        namaKamar = { kamar.namaKamar }
+                        kapasitasKamar = { kamar.kapasitasKamar }/>
+                    </div>
+                )))}
+            </div>
+
             <Button onClick={handleEdit} variant="success">
                 Edit
             </Button>

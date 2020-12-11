@@ -165,13 +165,13 @@ class HotelList extends Component{
         }
         const pageNumbers = numbers.map(num => {
             return (
-                <button
+                <Button
                     key={num}
                     id={num}
                     onClick={this.handlePagination}
                     >
                     {num}
-                </button>
+                </Button>
             );
         });
     
@@ -198,8 +198,7 @@ class HotelList extends Component{
                             namaHotel={hotel.namaHotel}
                             alamat={hotel.alamat}
                             nomorTelepon={hotel.nomorTelepon}
-                            namaKamar={hotel.listKamar.namaKamar}
-                            kapasitasKamar={hotel.listKamar.kapasitasKamar}
+                            listKamar={hotel.listKamar}
                             handleEdit={() => this.handleEditHotel(hotel)}
                             handleDelete={() => this.handleDeleteHotel(hotel.id)}
                             />
@@ -212,8 +211,7 @@ class HotelList extends Component{
                             namaHotel={hotel.namaHotel}
                             alamat={hotel.alamat}
                             nomorTelepon={hotel.nomorTelepon}
-                            namaKamar={hotel.listKamar.namaKamar}
-                            kapasitasKamar={hotel.listKamar.kapasitasKamar}
+                            listKamar={hotel.listKamar}
                             handleEdit={() => this.handleEditHotel(hotel)}
                             handleDelete={() => this.handleDeleteHotel(hotel.id)}
                             />

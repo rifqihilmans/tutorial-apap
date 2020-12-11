@@ -148,30 +148,20 @@ class HotelList extends Component{
         const { hotels, totalPerPage } = this.state;
 
         const listHotel = hotels.slice(0, 5);
-
-        const test = this.state.listKamar.map((kamar) => {
-            {kamar.listKamar.map(function (role, i) { 
-                return <div key={i}>
-                    <p>{role.namaKamar}</p>
-                    <p>{role.kapasitasKamar}</p>
-                </div>
-            })}
-        })
-        
-
+    
         const numbers = [];
         for (let i = 1; i <= Math.ceil(hotels.length / totalPerPage); i++) {
             numbers.push(i);
         }
         const pageNumbers = numbers.map(num => {
             return (
-                <Button
+                <button
                     key={num}
                     id={num}
                     onClick={this.handlePagination}
                     >
                     {num}
-                </Button>
+                </button>
             );
         });
     
@@ -217,7 +207,6 @@ class HotelList extends Component{
                             />
                         );
                     })}
-                    {test}
                 </div>
                 <Modal show={this.state.isCreate || this.state.isEdit} handleCloseModal = {this.handleCancel}>
                     <form>

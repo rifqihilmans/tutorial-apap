@@ -18,6 +18,8 @@ class HotelList extends Component{
             namaHotel:"",
             alamat:"",
             nomorTelepon:"",
+            namaKamar: "",
+            kapasitasKamar: "",
         };
         this.handleAddHotel = this.handleAddHotel.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
@@ -133,8 +135,15 @@ class HotelList extends Component{
     }
 
     render(){
+        const test = this.state.hotels.map((kamar) => {
+            {kamar.listKamar.map(function (role, i) { 
+                return <div key={i}>
+                    <p>{role.namaKamar}</p>
+                    <p>{role.kapasitasKamar}</p>
+                </div>
+            })}
+        })
         const { isSearch } = this.state;
-
         const listFilteredHotel = isSearch ? this.state.filteredHotel.map(hotel => {
             return(
                 <Hotel
@@ -143,6 +152,8 @@ class HotelList extends Component{
                 namaHotel={hotel.namaHotel}
                 alamat={hotel.alamat}
                 nomorTelepon={hotel.nomorTelepon}
+                namaKamar={hotel.listKamar.namaKamar}
+                kapasitasKamar={hotel.listKamar.kapasitasKamar}
                 handleEdit={() => this.handleEditHotel(hotel)}
                 handleDelete={() => this.handleDeleteHotel(hotel.id)}
                 />
@@ -155,6 +166,8 @@ class HotelList extends Component{
                 namaHotel={hotel.namaHotel}
                 alamat={hotel.alamat}
                 nomorTelepon={hotel.nomorTelepon}
+                namaKamar={hotel.listKamar[1]}
+                kapasitasKamar={hotel.listKamar.kapasitasKamar}
                 handleEdit={() => this.handleEditHotel(hotel)}
                 handleDelete={() => this.handleDeleteHotel(hotel.id)}
                 />
@@ -177,6 +190,7 @@ class HotelList extends Component{
                 </form>
                 <div>
                     {listFilteredHotel}
+                    {test}
                 </div>
                 <Modal show={this.state.isCreate || this.state.isEdit} handleCloseModal = {this.handleCancel}>
                     <form>

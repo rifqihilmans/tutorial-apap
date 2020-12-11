@@ -190,9 +190,13 @@ Hasilnya adalah sebagai berikut
 ![Screenshot (1007)](https://user-images.githubusercontent.com/60379157/101916057-00b9bc80-3bf9-11eb-8f5f-fff0ce84bbf8.png)
 
 4. componentDidMount: akan dieksekusi setelah render pertama selesai. Selain itu juga dapat digunakan untuk mengintegrasikan dengan framework JavaScript lain. Kita menggunakannya ketika ingin update state
+
 shouldComponentUpdate: akan return true atau false dan menentukan apakah component akan diupdate atau tidak
+
 componentDidUpdate: akan dipanggil setelah terjadi pembaruan
+
 componentWillReceiveProps: akan dipanggil setelah props diupdate sebelum render selanjutnya dipanggil
+
 componentWillUnmount: akan dipanggil ketika component dihapus dari DOM
 
 ### What I did not understand

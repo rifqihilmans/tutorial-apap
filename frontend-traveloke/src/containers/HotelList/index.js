@@ -4,6 +4,7 @@ import Button from "../../components/Button";
 import Hotel from "../../components/Hotel";
 import classes from "./styles.module.css";
 import Modal from "../../components/Modal";
+import Pagination from "../../components/Pagination";
 
 class HotelList extends Component{
     constructor(props){
@@ -32,7 +33,6 @@ class HotelList extends Component{
         this.handleSubmitEditHotel = this.handleSubmitEditHotel.bind(this);
         this.handleDeleteHotel = this.handleDeleteHotel.bind(this);
         this.handleSearchInput = this.handleSearchInput.bind(this);
-        this.handlePagination = this.handlePagination.bind(this);
     }
 
     handleSearchInput(event) {
@@ -138,33 +138,17 @@ class HotelList extends Component{
         }
     }
 
-    handlePagination(event){
-        this.setState({
-            page: Number(event.target.id)
-        });
-    }
-
     render(){
-        const { hotels, totalPerPage } = this.state;
+        const { hotels } = this.state;
 
         const listHotel = hotels.slice(0, 5);
-    
-        const numbers = [];
-        for (let i = 1; i <= Math.ceil(hotels.length / totalPerPage); i++) {
-            numbers.push(i);
+
+        const paginate = (number) =>{
+            this.setState({
+                page:number
+            })
         }
-        const pageNumbers = numbers.map(num => {
-            return (
-                <button
-                    key={num}
-                    id={num}
-                    onClick={this.handlePagination}
-                    >
-                    {num}
-                </button>
-            );
-        });
-    
+
         return(
             <div className={classes.hotelList}>
                 <h1 className={classes.title}>All Hotels</h1>
@@ -180,7 +164,7 @@ class HotelList extends Component{
                     />
                 </form>
                 <div>
-                    {this.state.isSearch ? this.state.filteredHotel.map(hotel => {
+                    {this.state.isSearch ?  this.state.filteredHotel.map(hotel => {
                         return(
                             <Hotel
                             key={hotel.id}
@@ -255,7 +239,7 @@ class HotelList extends Component{
                     </form>
                 </Modal>
                 <div>
-                    {pageNumbers}
+                    <Pagination total={this.state.hotels.length} page={this.state.totalPerPage} paginate={paginate}/>
                 </div>
             </div>
         );
